@@ -150,3 +150,61 @@ while(n != 0):
             break
     if(n == 0):
         break
+
+# 10. będzie jeszcze do poprawy bo na razie nie ma możliwości wprowadzania liczb ponownie
+from random import*
+print("Instrukcja obslugi kalkulatora: ")
+print("wpisz liczby, na ktorych chcesz wykonac operacje, a nastepnie wybierz jeden z operatorow: '+' '-' '*' '/' '^' '#' 'x'")
+print("Uwaga, w przypadku wybierania zakresu losowej liczby beda to 2 pierwsze wpisane z klawiatury.")
+liczby = []
+x = 0
+while True:
+    x = input()
+    if ((x == '+') or (x == '-') or (x == '*') or (x == '/') or (x == '^') or (x == '#') or (x == 'x')):
+        break
+    else:
+        liczby.append(float(x))
+
+def kalkulator(liczby, x):
+    wynik = 0
+    i = 0
+    if(x == '+'):
+        for i in range(len(liczby)):
+            temp = liczby[i]
+            wynik += temp
+    elif(x == '-'):
+        wynik = liczby[0]       
+        for i in range(1, len(liczby)): #indeks 0 jest juz wykorzystany do odjemnika, wiec wystarczy odejmowac liczby na miejscach 1, 2,... itd.
+            temp = liczby[i]
+            wynik -= temp
+    elif(x == '*'):
+        wynik = 1
+        for i in range(len(liczby)):
+            temp = liczby[i]
+            wynik *= temp
+    elif(x == '/'):
+        wynik = liczby[0]
+        for i in range(1, len(liczby)): #analogicznie do odejmowania
+            if(liczby[i] == 0):
+                print("Nie mozna dzielic przez zero!")
+            else:
+                temp = liczby[i]
+                wynik = wynik / temp
+    elif(x == '^'):
+        for i in range(len(liczby)):
+            temp = liczby[i]
+            wynik = wynik ^ temp
+    elif(x == '#'):
+        for i in range(len(liczby)):
+            if(liczby[i] < 0):
+                print("Obsluga dzialan tylko na liczbach rzeczywistych!")
+                break
+            else:
+                print("Pierwiastek z", i + 1, "liczby: ", liczby[i] ** (1/2))
+    elif(x == 'x'):
+        a = liczby[0]
+        b = liczby[1]
+        wynik = uniform(a, b) #losuje liczbę typu float w przedziale (a,b)
+
+    return wynik
+print(kalkulator(liczby, x))
