@@ -60,7 +60,8 @@ elif(liczba2 == 0):
 print("wprowadz 2 liczby jako zakres: ")
 x = int(input())
 y = int(input()) #Po kolei, w kolejnych linijkach.
-if(x > y):
+size = abs(y - x) + 1
+if(x < y):
     x = x
     y = y
 else:
@@ -69,20 +70,17 @@ else:
     y = pom
 lista = []
 i = 0
-if(y - x <= 20):
-    for i in range (y - x):
-        lista[i] = x
-        print(lista[i])
-        x += 1
-        i += 1
-    #while i >= 0: #nie musi być tej pętli, wystarczy że po "lista[i] = x" wpisze się print(lista[i])
-    #    print(lista[y - x - i])
-    #    i -= 1
+for i in range (size):
+        lista.append(x + i)
+        #print(lista[i])
+if(size <= 20):
+    while i >= 0: #nie musi być tej pętli, wystarczy że po "lista.append(x + i)" wpisze się print(lista[i]) i oczywiście element wypisujący wartości z listy umieści się w pętli po sprawdzeniu warunku if(size <= 20)
+        print(lista[size - 1 - i]) #musi być size - 1, ponieważ dla np. size = 7 i = 6 po ukończeniu wcześniejszej pętli
+        i -= 1
 else:
-    srednia = (x + y) / 2
-    if(type(srednia) == int): #ilość liczb jest nieparzysta
-        indeks = (y - x - 1) / 2 #będzie potrzebny do określenia miejsca w którym znajdują się wartości najbliżej średniej na liście np. y - x = 7 więc środkowe miejsce zajmuje indeks 3 (licząc od 0) (7-1)/2 = 3
+    if(size % 2 != 0): #ilość liczb jest nieparzysta
+        indeks = int((size - 1) / 2) #będzie potrzebny do określenia miejsca w którym znajdują się wartości najbliżej średniej na liście np. y - x = 7 więc środkowe miejsce zajmuje indeks 3 (licząc od 0) (7-1)/2 = 3
         print(lista[indeks - 3], lista[indeks - 2], lista[indeks - 1], lista[indeks + 1], lista[indeks + 2], lista[indeks + 3]) #wypisanie 6 liczb leżących najbliżej średniej
-    if(type(srednia) != int): #ilość liczb jest parzysta
-        indeks = (y - x) / 2 - 1 #np. jeśli liczb jest 8 to nie istnieje środkowe miejsce, ale można ustawić indeks "na lewo od środka" 8/2 - 1 = 3. Wtedy trzeba wypisać następujące elementy:
+    if(size % 2 == 0): #ilość liczb jest parzysta
+        indeks = int((size) / 2 - 1) #np. jeśli liczb jest 8 to nie istnieje środkowe miejsce, ale można ustawić indeks "na lewo od środka" 8/2 - 1 = 3. Wtedy trzeba wypisać następujące elementy:
         print(lista[indeks - 2], lista[indeks - 1], lista[indeks], lista[indeks + 1], lista[indeks + 2], lista[indeks + 3])
