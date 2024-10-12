@@ -1,0 +1,56 @@
+pin = int(input("Ustaw PIN do operacji: "))
+saldo = 2137
+n = 1
+while(n != 0):
+    print("1. BANKOMAT \n", "2. WPLATOMAT \n", "3. SPRAWDZANIE SALDA \n", "0. WYJSCIE \n")
+    n = int(input())
+    while(n == 1):
+        kwota = int(input("Podaj kwote, ktora chcesz wyplacic: "))
+        haslo = int(input("Podaj kod PIN: "))
+        if(haslo == pin):            
+            if(kwota <= saldo):
+                print("Pomyslnie wyplacono ", kwota)
+                saldo -= kwota
+                print("Na koncie zostalo: ", saldo)
+            else:
+                print("Nie masz wystarczajaco srodkow na koncie.")
+        else:
+            print("Podano zly PIN.")
+        n = str(input("Czy chcesz kontynuowac? 'T/N'"))
+        if(n == 'N' or n == 'n'):
+            break
+        elif(n == 'T' or n == 't'):
+            n = 1
+        else:
+            break
+    while(n == 2):
+        kwota = int(input("Podaj kwote, ktora chcesz wplacic: "))
+        haslo = int(input("Podaj kod PIN: "))
+        if(haslo == pin):
+            print("Pomyslnie wplacono ", kwota)
+            saldo += kwota
+            print("Na koncie znajduje sie: ", saldo)
+        else:
+            print("Podano zly PIN.")
+        n = str(input("Czy chcesz kontynuowac? 'T/N'"))
+        if(n == 'N' or n == 'n'):
+            break
+        elif(n == 'T' or n == 't'):
+            n = 2
+        else:
+            break
+    while(n == 3):
+        haslo = int(input("Podaj kod PIN: "))
+        if(haslo == pin):
+            print("Na twoim koncie znajduje sie: ", saldo)
+        else:
+            print("Podano zly PIN.")
+        n = str(input("Czy chcesz kontynuowac? 'T/N'"))
+        if(n == 'N' or n == 'n'):
+            break
+        elif(n == 'T' or n == 't'):
+            n = 3
+        else:
+            break
+    if(n == 0):
+        break
