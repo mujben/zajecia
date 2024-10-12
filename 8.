@@ -1,0 +1,9 @@
+wysokosc = int(input("podaj wysokosc choinki: "))
+i = 0
+j = 0
+for i in range (wysokosc): #rysowanie choinki w poziomie
+    if(i == 0):
+        print((wysokosc - 1) * ' ', '|') #narysowanie szpica na czubku choinki
+        continue
+    print((wysokosc - 1 - i) * ' ', (2 * i + 1) * '*', (wysokosc - 1 - i) * ' ')
+print((wysokosc - 1) * ' ', "U")
