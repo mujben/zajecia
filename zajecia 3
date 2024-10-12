@@ -37,11 +37,9 @@ print(round(5/7, 10))
 liczba = input()
 print("Wpisana przez Ciebie liczba to: ", liczba)
 # 6.
-print("Wprowadz dwie liczby nieujemne.")
-print("Druga z nich musi byc rozna od 0.")
-liczba1 = float(input())#komentarz do typu liczby. Powinien być to typ float, ponieważ funkcja ** lub pow() nie obsługuje typu str, a użytkownik może wpisać dowolną liczbę
-liczba2 = float(input())#żeby skomentować wiele linii kodu, trzeba w każdej z nich użyć "#", w przeciwieństwie do C++ gdzie wystarczy /* */
-if(liczba2 != 0 and ((liczba1 >= 0 and liczba2 < 0) or (liczba1 <= 0 and liczba2 > 0))):
+liczba1 = float(input("wprowadz pierwsza liczbe: ")) #komentarz do typu liczby. Powinien być to typ float, ponieważ funkcja ** lub pow() nie obsługuje typu str, a użytkownik może wpisać dowolną liczbę
+liczba2 = float(input("wprowadz druga liczbe, rozna od 0: ")) #żeby skomentować wiele linii kodu, trzeba w każdej z nich użyć "#", w przeciwieństwie do C++ gdzie wystarczy /* */
+if(liczba2 != 0 and ((liczba1 > 0 and liczba2 > 0) or (liczba1 >= 0 and liczba2 < 0) or (liczba1 <= 0 and liczba2 > 0))):
     liczba2 = abs(liczba2)
     liczba1 = abs(liczba1)
     print("suma: ", liczba1 + liczba2) 
@@ -50,11 +48,11 @@ if(liczba2 != 0 and ((liczba1 >= 0 and liczba2 < 0) or (liczba1 <= 0 and liczba2
     if(liczba1 * liczba2 == 10):
         print("Yay!")
     print("iloraz: ", liczba1/liczba2)
-    print("kwadrat liczby 1: ", float(liczba1)**2, "kwadrat liczby 2: ", float(liczba2)**2)
-    print("pierwiastek kwadratowy liczby 1: ", float(liczba1)**(1/2), "pierwiastek kwadratowy liczby 2: ", float(liczba2)**(1/2))
+    print("kwadrat liczby 1: ", float(liczba1)**2, ", kwadrat liczby 2: ", float(liczba2)**2)
+    print("pierwiastek kwadratowy liczby 1: ", float(liczba1)**(1/2), ", pierwiastek kwadratowy liczby 2: ", float(liczba2)**(1/2))
 elif(liczba1 < 0 and liczba2 < 0):
     print("obydwie liczby nie moga byc ujemne.")
-elif(liczba2 == 0):
+else:
     print("nie mozna dzielic przez 0.")
 # 7.
 print("wprowadz 2 liczby jako zakres: ")
