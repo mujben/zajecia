@@ -36,7 +36,11 @@ liczba = input()
 print("Wpisana przez Ciebie liczba to: ", liczba)
 # 6.
 liczba1 = float(input("wprowadz pierwsza liczbe: ")) #komentarz do typu liczby. Powinien być to typ float, ponieważ funkcja ** lub pow() nie obsługuje typu str, a użytkownik może wpisać dowolną liczbę
-liczba2 = float(input("wprowadz druga liczbe, rozna od 0: ")) #żeby skomentować wiele linii kodu, trzeba w każdej z nich użyć "#", w przeciwieństwie do C++ gdzie wystarczy /* */
+liczba2 = float(input("wprowadz druga liczbe, rozna od 0: "))
+'''
+Komentarz w wielu liniach kodu.
+Mozna pisac pomiedzy trzema znakami apostrofa zeby komentowac wiele linii kodu.
+'''
 if(liczba2 != 0 and ((liczba1 > 0 and liczba2 > 0) or (liczba1 >= 0 and liczba2 < 0) or (liczba1 <= 0 and liczba2 > 0))):
     liczba2 = abs(liczba2)
     liczba1 = abs(liczba1)
