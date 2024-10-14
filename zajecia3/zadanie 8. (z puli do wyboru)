@@ -1,0 +1,28 @@
+def cp(n):
+    dzielnik = 2
+    for i in range(int(n ** (1/2))):    #zakres jest do sqrt(n), ponieważ nie ma sensu dalej sprawdzać (sqrt(n) * sqrt(n) = n i dalej po prostu sytuacja by była symetryczna)
+        if(n % dzielnik == 0):
+            return False
+        dzielnik += 1
+    return True
+
+#print(cp(6), cp(49), cp(37))
+x = 0
+def ciag(m):
+    suma = 1
+    j = 0
+    for j in range (m + 1):     #m + 1 bo jest to przedział otwarty
+        suma *= 2
+    return (suma - 1)
+
+#print(ciag(1), ciag(2), ciag(3), ciag(4))
+
+def liczba(a):
+    if(cp(a)):
+        return int(a*(a+1)/2)
+    return 0
+
+while (liczba(ciag(x)) < 1000000):
+    if(liczba(ciag(x)) != 0 ):
+        print(liczba(ciag(x)))
+    x += 1
