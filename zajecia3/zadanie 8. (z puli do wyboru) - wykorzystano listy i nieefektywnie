@@ -1,0 +1,30 @@
+n = 2
+def rozklad(n):
+    global czynniki
+    czynniki = []
+    dzielnik = 1
+    while dzielnik < n:
+        if(n%dzielnik == 0):
+            czynniki.append(dzielnik)   #dodaję dzielniki liczby n do listy
+            dzielnik += 1
+        else:
+            dzielnik += 1
+    return czynniki
+
+def dodanie(czynniki):
+    suma = 0
+    for i in range(len(czynniki)):
+        suma += czynniki[i]
+    czynniki.clear()                    #czyszczę tablicę czynniki dla spokoju po wykonanej operacji
+    return suma
+
+def sprawdzenie(n):
+    if (dodanie(rozklad(n)) == n):
+        return True
+    else: 
+        return False
+
+while n < 1000000:
+    if(sprawdzenie(n)):
+        print(n)
+    n += 1
