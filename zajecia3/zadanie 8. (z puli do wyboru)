@@ -6,7 +6,6 @@ def cp(n):
         dzielnik += 1
     return True
 
-#print(cp(6), cp(49), cp(37))
 x = 0
 def ciag(m):
     suma = 1
@@ -14,8 +13,6 @@ def ciag(m):
     for j in range (m + 1):     #m + 1 bo jest to przedział otwarty
         suma *= 2
     return (suma - 1)
-
-#print(ciag(1), ciag(2), ciag(3), ciag(4))
 
 def liczba(a):
     if(cp(a)):
