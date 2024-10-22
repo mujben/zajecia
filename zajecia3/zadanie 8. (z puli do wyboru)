@@ -1,9 +1,7 @@
 def cp(n):
-    dzielnik = 2
-    for i in range(int(n ** (1/2))):    #zakres jest do sqrt(n), ponieważ nie ma sensu dalej sprawdzać (sqrt(n) * sqrt(n) = n i dalej po prostu sytuacja by była symetryczna)
-        if(n % dzielnik == 0):
+    for i in range(2, int(n ** (1/2)) + 1):    #zakres jest do sqrt(n) + 1, ponieważ nie ma sensu dalej sprawdzać (sqrt(n) * sqrt(n) = n i dalej po prostu sytuacja by była symetryczna)
+        if(n % i == 0):
             return False
-        dzielnik += 1
     return True
 
 x = 0
